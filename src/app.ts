@@ -2,6 +2,7 @@ import fastify from 'fastify'
 import fastifyJwt from '@fastify/jwt'
 import fastifyCookie from '@fastify/cookie'
 import { env } from './env'
+import { usersRoutes } from './routes/users'
 
 export const app = fastify()
 
@@ -14,6 +15,9 @@ app.register(fastifyJwt, {
     signed: false,
   },
   sign: {
-    expiresIn: '10m',
+    expiresIn: '1d',
   },
 })
+
+// Registro de Rotas
+app.register(usersRoutes)
