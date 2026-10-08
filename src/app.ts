@@ -3,6 +3,7 @@ import fastifyJwt from '@fastify/jwt'
 import fastifyCookie from '@fastify/cookie'
 import { env } from './env'
 import { usersRoutes } from './routes/users'
+import { mealsRoutes } from './routes/meals'
 
 export const app = fastify()
 
@@ -21,3 +22,4 @@ app.register(fastifyJwt, {
 
 // Registro de Rotas
 app.register(usersRoutes)
+app.register(mealsRoutes)
